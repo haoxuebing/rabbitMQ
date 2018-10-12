@@ -1,0 +1,28 @@
+RabbitMQ  （localhost:15672）
+    1、安装 Erlang 环境
+    2、安装RabblitMQ 如果无法打开，删除 AppData/RabbitMQ/db/*，再重新安装rabbitmq
+        D:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.8\sbin>rabbitmq-plugins enable rabbitmq_management
+        http://localhost:15672
+    3、guest/guest
+    4、Admin   
+        user_mmr
+        123
+        Tags: Admin
+    5、 virtual hosts管理  相当于  mysql 的db
+        添加数据库  vhost_mmr
+        授权
+        Set Permission
+        User  user_mmr
+    6、RabbitMQ使用amqp协议
+ 
+RabbitMQ使用
+    1、简单队列
+        P:消息生产者 --> 队列 --> C:消费者
+    2、链接
+        hostname：127.0.0.1    
+        port： 5672      
+        vhost：/vhost_mmr
+        username：username
+        password：password
+    3、send.js     receiver.js
+      从链接中获取一个通道

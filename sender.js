@@ -11,12 +11,14 @@ var url = {
 amqp.connect(url, function (err, conn) {
   conn.createChannel(function (err, ch) {
     var q = 'hello';
-    var msg = 'Hello World!';
+    var msg = {
+      data: 'Hello World!'
+    };
 
     ch.assertQueue(q, {
       durable: false
     });
-    ch.sendToQueue(q, Buffer.from(msg));
+    ch.sendToQueue(q, Buffer.from(JSON.stringify(msg)));
     console.log(" [x] Sent %s", msg);
   });
   setTimeout(function () {
